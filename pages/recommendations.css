@@ -1,0 +1,7 @@
+.fragment.recommendations {
+    height: calc(100% - 49px);
+}
+
+.fragment.recommendations #audioList {
+	width: calc(100% - 232px);
+}

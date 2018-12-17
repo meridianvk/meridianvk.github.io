@@ -1,0 +1,295 @@
+/* player control */
+
+
+
+#playerControl {
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+    #playerControl #coverBlock {
+        width: 188px;
+        height: 188px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('/img/cover_default.png');
+        overflow: hidden;
+    }
+
+        #playerControl #coverBlock.empty {
+            background-size: 80px;
+            background-position: 50%;
+        }
+
+    #playerControl #progressBar {
+        width: 188px;
+        padding: 0;
+        margin: 0;
+    }
+
+/* progress bar */
+
+#progressBarContainer {
+    width: 188px;
+    height: auto;
+    margin: 10px 0 -5px;
+    position: relative;
+}
+
+#progressBar {
+    height: 10px;
+    left: 20px;
+}
+
+#progressBarBg {
+    height: 4px;
+    background-color: #dddddd;
+}
+
+#progressBar .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background: white no-repeat 50% 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    outline: none;
+    top: -7px;
+    margin-left: -7px;
+    border-radius: 15px;
+    box-shadow: 0 1.5px 3px rgba(0,0,0,0.2);
+}
+
+#progressBar .ui-slider-range {
+    position: absolute;
+    border: 0;
+    top: 0;
+    height: 4px;
+}
+
+/* volume bar */
+
+#volumeWrapper {
+    position: relative;
+    height: 36px;
+    width: 188px;
+}
+
+#volumeBarContainer {
+    width: 118px;
+    height: auto;
+    /*margin: 10px 30px -5px;*/
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 59px);
+}
+
+#volumeBar {
+    height: 10px;
+    left: 20px;
+}
+
+#volumeBarBg {
+    height: 3px;
+    background-color: #dddddd;
+}
+
+#volumeBar .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    background: white no-repeat 50% 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    outline: none;
+    top: -7px;
+    margin-left: -7px;
+    border-radius: 15px;
+    box-shadow: 0 1.5px 3px rgba(0,0,0,0.2);
+}
+
+#volumeBar .ui-slider-range {
+    background: #444444;
+    position: absolute;
+    border: 0;
+    top: 0;
+    height: 3px;
+}
+
+.volumeIcon {
+    width: 36px;
+    height: 36px;
+    opacity: 0.3;
+    top: 2px;
+    position: absolute;
+}
+
+#volumeMute {
+    left: -8px;
+}
+
+#volumeMax {
+    right: -8px;
+}
+
+/* */
+
+#cover {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+#playerControl #currentAudioTitle {
+    display: block;
+    max-width: 188px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 24px;
+    margin-top: 10px;
+}
+
+#playerControl #currentAudioArtist {
+    display: block;
+    max-width: 188px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: normal;
+    height: 20px;
+}
+
+#playerControl #currentTime {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: 0.7;
+}
+
+#playerControl #duration {
+    display: inline-block;
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: 0.7;
+}
+
+/* control buttons */
+#playerControl #playerControls {
+    width: 188px;
+    height: 32px;
+    position: relative;
+}
+
+    #playerControl #playerControls .controlButton {
+        min-width: 0px;
+        min-height: 0px;
+        background-color: transparent;
+        border: none;
+        width: 30px;
+        height: 30px;
+        outline: none;
+        fill: #1e1e1e;
+        position: absolute;
+    }
+
+        #playerControl #playerControls .controlButton:active {
+            fill: black;
+        }
+
+
+    #playerControl #playerControls .play {
+        width: 34px;
+        height: 34px;
+        position: relative;
+        top: -2px;
+        left: calc(50% - 17px);
+    }
+
+    #playerControl #playerControls .pause {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        top: 0;
+        left: calc(50% - 16px);
+    }
+
+
+    #playerControl #playerControls #prev {
+        margin-left: -25px;
+        left: calc(50% - 35px);
+    }
+
+    #playerControl #playerControls #next {
+        margin-left: 27px;
+        left: 50%;
+    }
+
+/* */
+
+#playerControl .coverButtonsBlock {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    width: 20px;
+}
+
+    #playerControl .coverButtonsBlock .coverButton {
+        min-width: 0;
+        min-height: 0;
+        height: 20px;
+        width: 100%;
+        padding: 0;
+        background: none;
+        opacity: 0.5;
+        outline: none;
+        border: none;
+        padding: 3px;
+        position: absolute;
+    }
+
+        #playerControl .coverButtonsBlock .coverButton:hover {
+            opacity: 0.6;
+        }
+
+        #playerControl .coverButtonsBlock .coverButton:active {
+            transform: scale(0.92, 0.92);
+        }
+
+        #playerControl .coverButtonsBlock .coverButton#vk {
+            top: 10px;
+        }
+
+        #playerControl .coverButtonsBlock .coverButton#like {
+            padding: 0;
+            height: 25px;
+            width: 25px;
+            margin-left: -3px;
+        }
+
+        #playerControl .coverButtonsBlock .coverButton#shuffle {
+            padding: 4px;
+            top: 50%;
+            margin-top: -15px;
+        }
+
+        #playerControl .coverButtonsBlock .coverButton#shuffle.active {
+            opacity: 1;
+        }
+
+        #playerControl .coverButtonsBlock .coverButton#repeat {
+            bottom: 10px;
+        }
+
+        #playerControl .coverButtonsBlock .coverButton#repeat.active {
+            opacity: 1;
+        }

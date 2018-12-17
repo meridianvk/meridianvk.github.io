@@ -1,0 +1,82 @@
+body {
+}
+
+.page-section {
+    position: absolute;
+    top: 50%;
+    margin-top: -150px;
+    left: 0;
+    width: 100%;
+}
+
+.loginForm {
+    width: 260px;
+    height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+}
+
+    .loginForm .logo {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        max-width: 110px;
+        max-height: 110px;
+    }
+
+    .loginForm .title {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .loginForm .subtitle {
+        text-align: center;
+        font-size: 28px;
+        font-weight: lighter;
+    }
+
+    .loginForm .subtitle2 {
+        font-size: 11px;
+        vertical-align: top;
+        padding: 0;
+        margin-left: -5px;
+        margin-top: 5px;
+        display: inline-block;
+    }
+
+    .loginForm .welcomeText {
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        opacity: 0.7;
+        margin-top: 30px;
+    }
+
+#loginButton {
+    background-color: #1d75bd;
+    background-image: url('/img/login_vk_icon.png');
+    background-repeat: no-repeat;
+    background-position: 18px calc(50% + 1px);
+    background-size: 20px;
+    border-width: 0;
+    color: white;
+    width: auto;
+    height: 45px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+    #loginButton:hover {
+        background-color: #18619c;
+    }
+
+    #loginButton:active {
+        background-color: #134d7d;
+    }

@@ -1,0 +1,65 @@
+.accentColor {
+    color: #006ac1;
+}
+
+.accentBackgroundColor {
+    background-color: #006ac1;
+}
+
+/* pivot */
+.win-pivot .win-pivot-header.win-pivot-header-selected, .win-pivot button.win-pivot-header.win-pivot-header-selected:hover, .win-pivot.win-pivot-locked .win-pivot-header.win-pivot-header-selected {
+    background-color: #006ac1;
+}
+
+.win-pivot button.win-pivot-header:focus, .win-pivot button.win-pivot-header.win-pivot-header:hover, .win-pivot button.win-pivot-header.win-pivot-header:hover:active {
+    background-color: #006ac1;
+}
+
+html.win-hoverable .win-pivot button.win-pivot-header-selected:hover {
+    background-color: #006ac1;
+}
+
+/* main menu */
+.menuItem.active {
+    background-color: #006ac1;
+}
+
+/* audio list */
+.audioList.win-listview .win-item:hover, .albumsList.win-listview .win-item:hover {
+	background-color: rgba(65, 64, 66, 0.1);
+}
+
+.audioItem.active span {
+    color: #006ac1;
+}
+
+.audioItem.active .artist {
+    color: #006ac1;
+}
+
+.audioItem:hover .audioButton {
+	 fill: #006ac1;
+}
+
+/* album list */
+.albumItem.active {
+	background-color: rgba(0, 106, 193, 0.08);
+ 	color: #006ac1;
+}
+
+/* player */
+#playerControl #coverBlock {
+    background-color: rgba(0,106,193,0.6);
+}
+
+#progressBar .ui-slider-range {
+    background: #006ac1;
+}
+
+#playerControl #playerControls .controlButton:hover {
+    fill: #006ac1;
+}
+
+#playerControl .coverButtonsBlock .coverButton.active {
+    fill: #006ac1;
+}

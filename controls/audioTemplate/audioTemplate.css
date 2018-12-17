@@ -1,0 +1,71 @@
+.audioItem {
+    font-weight: normal;
+    white-space: nowrap;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+    .audioItem .audioButton {
+        display: none;
+    }
+
+    .audioItem:hover .duration {
+        opacity: 0;
+    }
+
+    .audioItem:hover .audioButton {
+        background: none;
+        display: block;
+        border: none;
+        width: 30px;
+        height: 30px;
+        min-height: 0px;
+        min-width: 0px;
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        right: 14px;
+        padding: 0;
+        outline: none;
+    }
+
+    .audioItem.active:hover .duration {
+        opacity: 0;
+    }
+
+    .audioItem .title {
+        width: calc(50% - 10px);
+        display: inline-block;
+        float: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 10px;
+    }
+
+    .audioItem .artist {
+        width: calc(50% - 40px);
+        display: inline-block;
+        opacity: 0.6;
+        float: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 10px;
+        color: black;
+    }
+
+    .audioItem.active .artist {
+        opacity: 1;
+    }
+
+    .audioItem .duration {
+        width: 40px;
+        display: inline-block;
+        font-size: 14px;
+        opacity: 0.6;
+    }
+
+    .audioItem.active .duration {
+        opacity: 1;
+    }

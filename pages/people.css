@@ -1,0 +1,20 @@
+body {
+}
+
+.fragment.people {
+    height: calc(100% - 49px);
+}
+
+.fragment.people .peopleList {
+    width: calc(100% - 232px);
+    height: 100%;
+}
+
+.fragment.people .peopleItem {
+	height: 164px;
+}
+
+.fragment.people .peopleItem .photo {
+    width: 120px;
+    height: 120px;
+}

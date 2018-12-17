@@ -1,0 +1,7 @@
+.fragment.popular {
+    height: calc(100% - 49px);
+}
+
+.fragment.popular #audioList {
+	width: calc(100% - 232px);
+}

@@ -1,0 +1,10 @@
+body {
+}
+
+.fragment.friend {
+    height: calc(100% - 49px);
+}
+
+.fragment.friend #wallAudioList.audioList {
+    width: calc(100% - 232px);
+}

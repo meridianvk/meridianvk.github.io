@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Meridian Online</title>
+    
+<!-- Start: injected by Adguard -->
+<script src="//local.adguard.com/adguard-ajax-api/injections/content-script.js?ts=63680511175748&amp;domain=web.meridianvk.com&amp;mask=127" nonce="04274ca0ef294621b18a8583d3123081" type="text/javascript"></script>
+<script src="//local.adguard.com/adguard-ajax-api/injections/userscripts.js?ts=63679707399261&name=AdGuard%20Popup%20Blocker&name=Adguard%20Assistant&name=Web%20of%20Trust" nonce="04274ca0ef294621b18a8583d3123081" type="text/javascript"></script>
+
+<!-- End: injected by Adguard -->
+<link rel="stylesheet" href="WinJS/css/ui-light.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="WinJS/js/WinJS.js"></script>
+    <!--<script type="text/javascript" src="http://vk.com/js/api/xd_connection.js?2"></script>-->
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js"></script>
+
+    <script type="text/javascript" src="lib/lastfm/lastfm.api.js"></script>
+    <script type="text/javascript" src="lib/lastfm/lastfm.api.cache.js"></script>
+    <script type="text/javascript" src="lib/lastfm/lastfm.api.md5.js"></script>
+
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/player.css" />
+
+    <link rel="stylesheet" href="css/accents/blue.css" />
+
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/navigator.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/vk.js"></script>
+    <script type="text/javascript" src="js/lastfm.js"></script>
+    <script type="text/javascript" src="js/audioPlayer.js"></script>
+    <script type="text/javascript" src="js/imagesService.js"></script>
+
+    <link rel="stylesheet" href="controls/audioTemplate/audioTemplate.css" />
+    <script type="text/javascript" src="controls/audioTemplate/audioTemplate.js"></script>
+
+    <link rel="stylesheet" href="controls/albumTemplate/albumTemplate.css" />
+    <script type="text/javascript" src="controls/albumTemplate/albumTemplate.js"></script>
+
+    <link rel="localization" href="locales/manifest.js">
+    <script type="text/javascript" src="js/l20n.js"></script>
+    <script type="text/javascript" src="js/browser.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-40718774-5', 'auto');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter27765417 = new Ya.Metrika({
+                        id: 27765417,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true
+                    });
+                } catch (e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="//mc.yandex.ru/watch/27765417" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <!-- Menu item template -->
+    <div class="menuItemTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="menuItem">
+            <span data-win-bind="textContent: title"></span>
+        </div>
+    </div>
+
+    <!-- Audio item template -->
+    <div class="audioItemTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="audioItem">
+            <span class="title" data-win-bind="textContent: title"></span>
+            <a class="artist win-interactive" data-win-bind="textContent: artist"></a>
+            <span class="duration" data-win-bind="textContent: duration"></span>
+
+            <button id="like" class="audioButton win-interactive">
+                <svg viewBox="0 0 76 80">
+                    <use xlink:href="img/player.svg#like"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Album item template -->
+    <div class="albumItemTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="albumItem">
+            <span class="title" data-win-bind="textContent: title"></span>
+        </div>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <div id="playerControl">
+            <div style="position: relative">
+                <div id="coverBlock" class="empty">
+                    <img id="coverImage" />
+                </div>
+                <div class="coverButtonsBlock">
+                    <div style="position: relative; height: 188px">
+                        <!--<button id="vk" class="coverButton">
+                            <svg viewBox="0 0 60 45">
+                                <use xlink:href="img/player.svg#vk"></use>
+                            </svg>
+                        </button>-->
+                        <button id="like" class="coverButton">
+                            <svg viewBox="0 0 76 80">
+                                <use xlink:href="img/player.svg#like"></use>
+                            </svg>
+                        </button>
+                        <button id="shuffle" class="coverButton">
+                            <svg viewBox="0 0 41.17 47.50">
+                                <use xlink:href="img/player.svg#shuffle"></use>
+                            </svg>
+                        </button>
+                        <button id="repeat" class="coverButton">
+                            <svg viewBox="0 0 14.24 13.37">
+                                <use xlink:href="img/player.svg#repeat"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <span id="currentAudioTitle"></span>
+            <span id="currentAudioArtist"></span>
+
+            <section id="progressBarContainer">
+                <div id="progressBarBg"></div>
+                <div id="progressBar"></div>
+            </section>
+
+            <div style="width: 188px; height: 20px; line-height: 20px">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+            <div id="playerControls">
+                <button id="prev" class="controlButton">
+                    <svg viewBox="0 0 80 80">
+                        <use xlink:href="img/player.svg#prev"></use>
+                    </svg>
+                </button>
+                <button id="play" class="controlButton play">
+                    <svg viewBox="0 0 80 80">
+                        <use xlink:href="img/player.svg#play"></use>
+                    </svg>
+                </button>
+                <button id="pause" class="controlButton pause" hidden="true">
+                    <svg viewBox="0 0 80 80">
+                        <use xlink:href="img/player.svg#pause"></use>
+                    </svg>
+                </button>
+                <button id="next" class="controlButton">
+                    <svg viewBox="0 0 80 80">
+                        <use xlink:href="./img/player.svg#next"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="volumeWrapper">
+                <img id="volumeMute" class="volumeIcon" src="img/light/volume_mute.png" />
+                <section id="volumeBarContainer">
+                    <div id="volumeBarBg"></div>
+                    <div id="volumeBar"></div>
+                </section>
+                <img id="volumeMax" class="volumeIcon" src="img/light/volume.png" />
+            </div>
+
+            <span id="appVersion"></span>
+        </div>
+
+        <div id="menu" class="menu" data-win-control="WinJS.UI.ListView" data-win-options="{itemTemplate: select('.menuItemTemplate'), layout: {type: WinJS.UI.ListLayout}, selectionMode: 'none'}">
+        </div>
+
+        <div class="verticalSplitter"></div>
+    </div>
+
+    <div class="backgroundArt">
+        <img class="art" />
+        <div class="hoverlay"></div>
+        <div class="voverlay"></div>
+    </div>
+    <div id="contenthost" class="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: ''}"></div>
+    <div id="searchWrapper">
+        <input id="searchBox" data-l10n-id="searchBox" type="text" placeholder="~Search" />
+        <svg id="searchIcon" viewBox="0 0 80 80">
+            <use xlink:href="./img/player.svg#search"></use>
+        </svg>
+    </div>
+
+    <audio id="player"></audio>
+
+    <script src="lib/svg4everybody.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+body {
+}
+
+.fragment.mymusic {
+    height: calc(100% - 49px);
+}
+
+#wallAudioList.audioList {
+    width: calc(100% - 232px);
+}
